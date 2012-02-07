@@ -20,21 +20,8 @@ public class CalculadoraController extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					CalculadoraController frame = new CalculadoraController();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	
+	
 
 	/**
 	 * Create the frame.
@@ -201,7 +188,7 @@ public class CalculadoraController extends JFrame {
 				
 			}
 		});
-		btnNewButton_1.setBounds(10, 204, 229, 23);
+		btnNewButton_1.setBounds(10, 221, 229, 23);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnCe = new JButton("CE");
@@ -212,5 +199,14 @@ public class CalculadoraController extends JFrame {
 		});
 		btnCe.setBounds(10, 31, 89, 23);
 		contentPane.add(btnCe);
+		
+		JButton button_0 = new JButton("0");
+		button_0.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Utilsoperacoes.preenche(textField, "0");
+			}
+		});
+		button_0.setBounds(90, 197, 63, 23);
+		contentPane.add(button_0);
 	}
 }
