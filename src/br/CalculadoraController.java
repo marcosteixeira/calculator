@@ -13,6 +13,10 @@ import java.awt.event.ActionEvent;
 
 public class CalculadoraController extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textField;
 
@@ -36,6 +40,7 @@ public class CalculadoraController extends JFrame {
 	 * Create the frame.
 	 */
 	public CalculadoraController () {
+		setTitle("Calculator");
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 257, 289);
@@ -133,11 +138,11 @@ public class CalculadoraController extends JFrame {
 		JButton btnNewButton = new JButton("+");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				double a = UtilsNumero.stringToDouble(textField.getText());
+				Utilsoperacoes.setA(a);
 				Utilsoperacoes calcula = new  Utilsoperacoes();
 				calcula.setOperacao(1);
 				Utilsoperacoes.setStatus(true);
-				double a = UtilsNumero.stringToInt(textField.getText());
-				Utilsoperacoes.setA(a);
 				
 				
 			}
@@ -148,11 +153,11 @@ public class CalculadoraController extends JFrame {
 		JButton button = new JButton("-");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				double a = UtilsNumero.stringToDouble(textField.getText());
+				Utilsoperacoes.setA(a);
 				Utilsoperacoes calcula = new  Utilsoperacoes();
 				calcula.setOperacao(2);
 				Utilsoperacoes.setStatus(true);
-				double a = UtilsNumero.stringToInt(textField.getText());
-				
 			}
 		});
 		button.setBounds(68, 65, 48, 23);
@@ -161,11 +166,11 @@ public class CalculadoraController extends JFrame {
 		JButton button_10 = new JButton("*");
 		button_10.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				double a = UtilsNumero.stringToDouble(textField.getText());
+				Utilsoperacoes.setA(a);
 				Utilsoperacoes calcula = new  Utilsoperacoes();
 				calcula.setOperacao(3);
 				Utilsoperacoes.setStatus(true);
-				double a = UtilsNumero.stringToInt(textField.getText());
-				Utilsoperacoes.setA(a);
 			}
 		});
 		button_10.setBounds(134, 65, 48, 23);
@@ -174,11 +179,11 @@ public class CalculadoraController extends JFrame {
 		JButton button_11 = new JButton("/");
 		button_11.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				double a=UtilsNumero.stringToDouble(textField.getText());
+				Utilsoperacoes.setA(a) ;
 				Utilsoperacoes calcula = new  Utilsoperacoes();
 				calcula.setOperacao(4);
 				Utilsoperacoes.setStatus(true);
-				double a=UtilsNumero.stringToInt(textField.getText());
-				Utilsoperacoes.setA(a) ;
 			}
 		});
 		button_11.setBounds(191, 65, 48, 23);
@@ -187,9 +192,11 @@ public class CalculadoraController extends JFrame {
 		JButton btnNewButton_1 = new JButton("=");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				double b = UtilsNumero.stringToInt(textField.getText());
+				double b = UtilsNumero.stringToDouble(textField.getText());
 				Utilsoperacoes.setB(b);
-				textField.setText(UtilsNumero.doubleToString(Utilsoperacoes.calcula(Utilsoperacoes.getOperacao(), Utilsoperacoes.getA(), Utilsoperacoes.getB())));
+				Utilsoperacoes.setC(Utilsoperacoes.calcula(Utilsoperacoes.getOperacao(), Utilsoperacoes.getA(), Utilsoperacoes.getB()));
+				textField.setText(UtilsNumero.doubleToString(Utilsoperacoes.getC()));
+				Utilsoperacoes.setStatus(true);
 				
 				
 			}

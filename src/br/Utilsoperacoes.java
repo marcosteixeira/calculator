@@ -6,8 +6,15 @@ public class Utilsoperacoes {
 	private static int operacao;
 	private static boolean status;
 	private static double a;
-	private static double b
-	;
+	private static double b;
+	private static double c;
+	
+	public static double getC() {
+		return c;
+	}
+	public static void setC(double c) {
+		Utilsoperacoes.c = c;
+	}
 	public static double getA() {
 		return a;
 	}

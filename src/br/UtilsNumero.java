@@ -3,8 +3,8 @@ package br;
 import javax.swing.JTextField;
 
 public class UtilsNumero {
-	public static double stringToInt(String a){
-		return Integer.parseInt(a);
+	public static double stringToDouble(String a){
+		return Double.parseDouble(a);
 	}
 	public static String doubleToString(double d){
 		return String.valueOf(d);
